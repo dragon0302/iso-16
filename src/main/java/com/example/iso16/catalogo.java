@@ -28,6 +28,8 @@ public class catalogo extends HttpServlet {
                 if (action.equalsIgnoreCase("add")){
                     int id = Integer.parseInt(request.getParameter("id"));
                     cart.AggungiProdotto();
+
+                    System.out.println("a+pdfingb");
                 }
             }
         }
