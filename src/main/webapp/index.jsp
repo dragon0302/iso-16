@@ -25,7 +25,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link href="prova.css" rel="pagina di stile" type="text/css">
-    <title>prova del carello</title>
+    <title>prova del carellooo</title>
 </head>
 <body>
 <h2> catalogo </h2>
