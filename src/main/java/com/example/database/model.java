@@ -1,4 +1,4 @@
-package com.example.iso16;
+package com.example.database;
 
 import java.sql.SQLException;
 import java.util.Collection;

@@ -1,4 +1,4 @@
-package com.example.iso16;
+package com.example.database;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;

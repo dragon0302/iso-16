@@ -1,4 +1,4 @@
-package com.example.iso16;
+package com.example.database;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
