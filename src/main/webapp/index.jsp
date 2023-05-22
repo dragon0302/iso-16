@@ -1,16 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
 <%
 
-    Collection<?> prova = (Collection<?>) request.getAttribute("catalogoiso16");
+    Collection<?> prova = (Collection<?>) request.getAttribute("prodotti");
     if (prova == null){
 
-        response.sendRedirect("./catalogoiso16");
+        response.sendRedirect("./prodotto");
         return;
 
     }
 
-    cliente clienti = (cliente) request.getAttribute("prodotto");
+     prodotto prodotti = (prodotto) request.getAttribute("prodotto");
 
     carello lista = (carello) request.getAttribute("carello");
 
@@ -19,7 +19,8 @@
 <!DOCTYPE html>
 <html>
 
-<%@ page contentType="text/html; charset=UTF-8" import="java.util.*,com.example.database.carello,com.example.database.cliente"%>
+<%@ page contentType="text/html; charset=UTF-8" import="java.util.*,com.example.database.carello,com.example.database.prodotto"%>
+
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -27,14 +28,13 @@
     <title>prova del carello</title>
 </head>
 <body>
-<%--@declare id="cogniome"--%>
-<%--@declare id="nome"--%><%--@declare id="data di nascita"--%><%--@declare id="telefono"--%><%--@declare id="email"--%><%--@declare id="username"--%><%--@declare id="pw"--%><h2> catalogo </h2>
-<a href="catalogo">List</a>
+<h2> catalogo </h2>
+<a href="prodotto">List</a>
 <table border=1>
     <tr>
-        <th>CF <a href="product?sort=CF">Sort</a></th>
-        <th>Nome<a href="product?sort=Nome">Sort</a></th>
-        <th>Cogniome<a href="product?sort=Cognome">Sort</a></th>
+        <th>codice <a href="prodotto?sort=CF">Sort</a></th>
+        <th>prezzo<a href="prodotto?sort=Nome">Sort</a></th>
+        <th>Descrizione<a href="prodotto?sort=Cognome">Sort</a></th>
         <th>Action</th>
 
     </tr>
@@ -45,20 +45,20 @@
             Iterator<?> it = prova.iterator();
             while (it.hasNext()){
 
-                cliente newCliet = (cliente) it.next();
+                prodotto newproduct = (prodotto) it.next();
 
         %>
 
     <tr>
 
-        <td><% newCliet.getCf();%></td>
-        <td><% newCliet.getNome();%></td>
-        <td><% newCliet.getCogniome();%></td>
+        <td><% newproduct.getCodice();%></td>
+        <td><% newproduct.getPrezzo();%></td>
+        <td><% newproduct.getDescrizione();%></td>
         <td>
 
-            <a href="product?action=delete&id=<%=newCliet.getCf()%>"></a>
-            <a href="product?action=read&id=<%=newCliet.getCf()%>"></a>
-            <a href="product?action=add&id=<%=newCliet.getCf()%>"></a>
+            <a href="prodotto?action=delete&id=<%=newproduct.getCodice()%>"></a>
+            <a href="prodotto?action=read&id=<%=newproduct.getCodice()%>"></a>
+            <a href="prodotto?action=add&id=<%=newproduct.getCodice()%>"></a>
 
         </td>
 
@@ -86,59 +86,47 @@
 
 <%
 
-    if (clienti != null){
+    if (prodotti != null){
 
 %>
 
 <table border=1>
     <tr>
-        <th>CF</th>
-        <th>Nome</th>
-        <th>Cogniome</th>
-        <th>Data di nascita</th>
-        <th>Telefono</th>
-        <th>Email</th>
-        <th>UserName</th>
-        <th>PW</th>
+        <th>codice</th>
+        <th>prezzo</th>
+        <th>categoria</th>
+        <th>Media Valutazioni</th>
+        <th>Amministratore</th>
     </tr>
     <tr>
-        <th><%clienti.getCf();%></th>
-        <th><%clienti.getNome();%></th>
-        <th><%clienti.getCogniome();%></th>
-        <th><%clienti.getData_di_nascita();%></th>
-        <th><%clienti.getTelefono();%></th>
-        <th><%clienti.getEmail();%></th>
-        <th><%clienti.getUserName();%></th>
-        <th><%clienti.getPW();%></th>
+        <th><%prodotti.getCodice();%></th>
+        <th><%prodotti.getPrezzo();%></th>
+        <th><%prodotti.getDescrizione();%></th>
+        <th><%prodotti.getCategoria();%></th>
+        <th><%prodotti.getMedia_Valutazioni();%></th>
+        <th><%prodotti.getAmministratore();%></th>
     </tr>
 </table>
 
 <% } %>
 
 <h2>Inserimento</h2>
-<form action="catalogoiso16" method="post">
-<input type="hidden" name="action" value="insert">
+<form action="prodotto" method="post">
+<%--@declare id="prezzo"--%><%--@declare id="descrizione"--%><%--@declare id="categoria"--%><%--@declare id="media valutazioni"--%><%--@declare id="amministratore"--%><input type="hidden" name="action" value="insert">
 
-<label for="nome">Name</label>
-<input name="nome" type="text" maxlength="20" required placeholder="inserire nome"><br>
+<label for="prezzo">prezzo<input name="prezzo" type="text" maxlength="20" required placeholder="inserire nome"><br></label>
 
-<label for="cogniome">Cogniome</label>
-<textarea name="cogniome" maxlength="120" rows="3" required placeholder="inserire cognome"></textarea><br>
+<label for="descrizione">descrizione<textarea name="descrizione" maxlength="120" rows="3" required placeholder="inserire cognome"></textarea><br></label>
 
-<label for="Data di nascita">Data di nascita</label>
-<textarea name="Data di nascita" maxlength="10" required placeholder="inserire data di nascita"></textarea><br>
 
-<label for="Telefono">Telefono</label>
-<textarea name="Telefono" maxlength="10" required placeholder="inserire numero di telefono"></textarea><br>
+<label for="categoria">categoria<textarea name="categoria" maxlength="10" required placeholder="inserire data di nascita"></textarea><br></label>
 
-<label for="Email">Email</label>
-<textarea name="Email" maxlength="100" required placeholder="inserire email"></textarea><br>
 
-<label for="UserName">UserName</label>
-<textarea name="UserName" maxlength="30" required placeholder="inserire username"></textarea><br>
+<label for="media valutazioni">media valutazioni<textarea name="media valutazioni" maxlength="10" required placeholder="inserire numero di telefono"></textarea><br></label>
 
-<label for="PW">PW</label>
-<textarea name="PW" maxlength="30" required placeholder="inserire la password"></textarea><br>
+
+<label for="Amministratore">Amministratore<textarea name="Amministratore" maxlength="100" required placeholder="inserire email"></textarea><br></label>
+
 
 <input type="submit" value="add"><input type="reset" value="reset">
 </form>
@@ -154,14 +142,14 @@
 
         <%
 
-            List<cliente> listaClienti = lista.getClieti();
-            for (cliente clientiNuovi: listaClienti){
+            List<prodotto> listaProdotti = lista.getProdotto();
+            for (prodotto prodottiNuovi: listaProdotti){
 
         %>
 
         <tr>
-            <td><%=clientiNuovi.getNome()%></td>
-            <tb><a href="product?action=deleteC&id=<%=clientiNuovi.getCf()%>">rimuovi dal carello</a></tb>
+            <td><%=prodottiNuovi.getPrezzo()%></td>
+            <tb><a href="prodotto?action=deleteC&id=<%=prodottiNuovi.getCodice()%>">rimuovi dal carello</a></tb>
         </tr>
 
         <%}%>
