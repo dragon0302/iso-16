@@ -30,11 +30,11 @@
 <body>
 <h2> catalogo </h2>
 <a href="prodotto">List</a>
-<table border=1>
+<table >
     <tr>
-        <th>codice <a href="prodotto?sort=CF">Sort</a></th>
-        <th>prezzo<a href="prodotto?sort=Nome">Sort</a></th>
-        <th>Descrizione<a href="prodotto?sort=Cognome">Sort</a></th>
+        <th>codice <a href="prodotto?sort=codice">Sort</a></th>
+        <th>prezzo<a href="prodotto?sort=prezzo">Sort</a></th>
+        <th>Descrizione<a href="prodotto?sort=Descrizione">Sort</a></th>
         <th>Action</th>
 
     </tr>
@@ -51,9 +51,9 @@
 
     <tr>
 
-        <td><% newproduct.getCodice();%></td>
-        <td><% newproduct.getPrezzo();%></td>
-        <td><% newproduct.getDescrizione();%></td>
+        <td><%=newproduct.getCodice()%></td>
+        <td><%=newproduct.getPrezzo()%></td>
+        <td><%=newproduct.getDescrizione()%></td>
         <td>
 
             <a href="prodotto?action=delete&id=<%=newproduct.getCodice()%>"></a>
@@ -90,7 +90,7 @@
 
 %>
 
-<table border=1>
+<table >
     <tr>
         <th>codice</th>
         <th>prezzo</th>
@@ -99,12 +99,12 @@
         <th>Amministratore</th>
     </tr>
     <tr>
-        <th><%prodotti.getCodice();%></th>
-        <th><%prodotti.getPrezzo();%></th>
-        <th><%prodotti.getDescrizione();%></th>
-        <th><%prodotti.getCategoria();%></th>
-        <th><%prodotti.getMedia_Valutazioni();%></th>
-        <th><%prodotti.getAmministratore();%></th>
+        <th><%=prodotti.getCodice()%></th>
+        <th><%=prodotti.getPrezzo()%></th>
+        <th><%=prodotti.getDescrizione()%></th>
+        <th><%=prodotti.getCategoria()%></th>
+        <th><%=prodotti.getMedia_Valutazioni()%></th>
+        <th><%=prodotti.getAmministratore()%></th>
     </tr>
 </table>
 
@@ -114,15 +114,15 @@
 <form action="prodotto" method="post">
 <%--@declare id="prezzo"--%><%--@declare id="descrizione"--%><%--@declare id="categoria"--%><%--@declare id="media valutazioni"--%><%--@declare id="amministratore"--%><input type="hidden" name="action" value="insert">
 
-<label for="prezzo">prezzo<input name="prezzo" type="text" maxlength="20" required placeholder="inserire nome"><br></label>
+<label for="prezzo">prezzo<input name="prezzo" type="text" maxlength="20" required placeholder="inserire prezzo"><br></label>
 
-<label for="descrizione">descrizione<textarea name="descrizione" maxlength="120" rows="3" required placeholder="inserire cognome"></textarea><br></label>
-
-
-<label for="categoria">categoria<textarea name="categoria" maxlength="10" required placeholder="inserire data di nascita"></textarea><br></label>
+<label for="descrizione">descrizione<textarea name="descrizione" maxlength="120" rows="3" required placeholder="inserire descrizione"></textarea><br></label>
 
 
-<label for="media valutazioni">media valutazioni<textarea name="media valutazioni" maxlength="10" required placeholder="inserire numero di telefono"></textarea><br></label>
+<label for="categoria">categoria<textarea name="categoria" maxlength="10" required placeholder="inserire data di categoria"></textarea><br></label>
+
+
+<label for="media valutazioni">media valutazioni<textarea name="media valutazioni" maxlength="10" required placeholder="inserire numero di media valutazioni"></textarea><br></label>
 
 
 <label for="Amministratore">Amministratore<textarea name="Amministratore" maxlength="100" required placeholder="inserire email"></textarea><br></label>
@@ -134,7 +134,7 @@
 <%if (lista != null){%>
 
     <h2>Cart</h2>
-    <table border="1">
+    <table>
         <tr>
             <th>name</th>
             <th>Action</th>
