@@ -3,9 +3,9 @@
 <Context>
     <Resource name="jdbc/catalogoiso16"
               auth="Container"
-              driverClassName="com.mysql.cj.jdbc.Driver"
               type="javax.sql.DataSource"
               username="root"
               password="bmvserie3"
-              url=" jdbc:mysql://localhost:3306/catalogoiso16?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC"/>
+              driverClassName="com.mysql.cj.jdbc.Driver"
+              url="jdbc:mysql://localhost:3306/catalogoiso16?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC"/>
 </Context>

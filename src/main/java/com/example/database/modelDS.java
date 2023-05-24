@@ -13,6 +13,8 @@ import java.util.LinkedList;
 
 public class modelDS implements model {
 
+    public modelDS(){}
+
     private static DataSource ds;
 
     static {
@@ -33,20 +35,35 @@ public class modelDS implements model {
         Connection connection = null;
         PreparedStatement query= null;
 
-        String insertSQL = "INSERT INTO "+ TABLE_NAME + " (prezzo, descrizione, Categoria, Media_Valutazioni, Amministratore) VALUES (?,?,?,?,?)";
+        String insertSQL = "INSERT INTO "+ TABLE_NAME + " (Codice, prezzo, descrizzione, Categoria, Media_Valutazioni, Amministratore) VALUES (?,?,?,?,?,?)";
 
 
         try {
             connection = ds.getConnection();
             query = connection.prepareStatement(insertSQL);
-            query.setFloat(1,nuovo.getPrezzo());
-            query.setString(2,nuovo.getDescrizione());
-            query.setString(3,nuovo.getCategoria());
-            query.setFloat(4,nuovo.getMedia_Valutazioni());
-            query.setString(5,nuovo.getAmministratore());
+            query.setInt(1,2);
+            query.setFloat(2,nuovo.getPrezzo());
+            query.setString(3,nuovo.getDescrizione());
+            query.setString(4,nuovo.getCategoria());
+            query.setFloat(5,nuovo.getMedia_Valutazioni());
+            query.setString(6,nuovo.getAmministratore());
+
+            query.executeUpdate();
+
+//            connection.commit();
+
         }finally {
-            if (connection != null){
-                connection.close();
+            try {
+
+                if (query != null){
+                    query.close();
+                }
+
+            }finally {
+
+                if (connection != null) {
+                    connection.close();
+                }
             }
         }
 
