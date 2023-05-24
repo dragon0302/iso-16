@@ -35,13 +35,13 @@ public class modelDS implements model {
         Connection connection = null;
         PreparedStatement query= null;
 
-        String insertSQL = "INSERT INTO "+ TABLE_NAME + " (Codice, prezzo, descrizzione, Categoria, Media_Valutazioni, Amministratore) VALUES (?,?,?,?,?,?)";
+        String insertSQL = "INSERT INTO "+ TABLE_NAME + " (codice, prezzo, descrizzione, Categoria, Media_Valutazioni, Amministratore) VALUES (?,?,?,?,?,?)";
 
 
         try {
             connection = ds.getConnection();
             query = connection.prepareStatement(insertSQL);
-            query.setInt(1,2);
+            query.setInt(1,nuovo.getCodice());
             query.setFloat(2,nuovo.getPrezzo());
             query.setString(3,nuovo.getDescrizione());
             query.setString(4,nuovo.getCategoria());

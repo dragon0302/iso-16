@@ -22,13 +22,14 @@ public class catalogo extends HttpServlet {
                 prodotto nuovo = new prodotto();
                 response.sendRedirect("index.jsp");
 
+                int codice = Integer.parseInt(request.getParameter("codice"));
                 float prezzo = Float.parseFloat(request.getParameter("prezzo"));
                 String Descrizione = request.getParameter("descrizione");
                 String categoria = request.getParameter("categoria");
-                float media = Float.parseFloat(request.getParameter("media_valutazioni"));
+                float media = Float.parseFloat(request.getParameter("Media Valutazioni"));
                 String amministratore = request.getParameter("Amministratore");
 
-
+                nuovo.setCodice(codice);
                 nuovo.setPrezzo(prezzo);
                 System.out.println("orezzo" + nuovo.getPrezzo());
                 nuovo.setDescrizione(Descrizione);

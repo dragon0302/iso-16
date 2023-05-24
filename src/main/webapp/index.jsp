@@ -11,6 +11,7 @@
 <h2>Catalogo</h2>
 <h3>Inserimento</h3>
 
+
 <form action="catalogo" method="POST">
 
     <%--@declare id="prezzo"--%>
@@ -18,8 +19,10 @@
     <%--@declare id="categoria"--%>
     <%--@declare id="media_valutazioni"--%>
     <%--@declare id="Amministratore"--%>
-
+    <%--@declare id="codice"--%>
     <input type="hidden" name="action" value="insert">
+
+    <label for="codice">codice <textarea name="codice" maxlength="10" required placeholder="Inserire codice"></textarea></label>
 
     <label for="prezzo">Prezzo<input name="prezzo" type="text" maxlength="10" required placeholder="Inserire prezzo"></label>
 
@@ -27,7 +30,7 @@
 
     <label for="categoria">Categoria <textarea name="categoria" maxlength="15" required placeholder="Inserire Categoria"></textarea></label>
 
-    <label for="media_valutazioni">Media Valutazioni <textarea name="media_valutazioni" maxlength="5" required placeholder="Inserire Media valutazioni"></textarea></label>
+    <label for="media_valutazioni">Media Valutazioni <input name="Media Valutazioni" type="text" maxlength="10" required placeholder="Inserire media valutazioni"></label>
 
     <label for="Amministratore">Amministratore <textarea name="Amministratore" maxlength="30" required placeholder="Inserire Amministratore"></textarea></label>
 
