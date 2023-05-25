@@ -28,14 +28,17 @@ public class catalogo extends HttpServlet {
                 String categoria = request.getParameter("categoria");
                 float media = Float.parseFloat(request.getParameter("Media Valutazioni"));
                 String amministratore = request.getParameter("Amministratore");
+                String nome = request.getParameter("nome");
+                int quantità = Integer.parseInt(request.getParameter("quantità"));
 
                 nuovo.setCodice(codice);
                 nuovo.setPrezzo(prezzo);
-                System.out.println("orezzo" + nuovo.getPrezzo());
                 nuovo.setDescrizione(Descrizione);
                 nuovo.setCategoria(categoria);
                 nuovo.setMedia_Valutazioni(media);
                 nuovo.setAmministratore(amministratore);
+                nuovo.setNome(nome);
+                nuovo.setQuantità(quantità);
                 modello.doSave(nuovo);
 
             }

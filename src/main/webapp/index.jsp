@@ -13,7 +13,9 @@
 
 <form action="catalogo" method="POST">
 
+    <%--@declare id="nome"--%>
     <%--@declare id="prezzo"--%>
+    <%--@declare id="quantità"--%>
     <%--@declare id="descrizione"--%>
     <%--@declare id="categoria"--%>
     <%--@declare id="media_valutazioni"--%>
@@ -23,7 +25,11 @@
 
     <label for="codice">codice <textarea name="codice" maxlength="10" required placeholder="Inserire codice"></textarea></label>
 
+    <label for="nome">Nome <textarea name="nome" maxlength="50" required placeholder="Inserire nome"></textarea></label>
+
     <label for="prezzo">Prezzo<input name="prezzo" type="text" maxlength="10" required placeholder="Inserire prezzo"></label>
+
+    <label for="quantità">Quantità<input name="quantità" type="text" maxlength="5" required placeholder="Inserire quantità"></label>
 
     <label for="descrizione">Descrizione <textarea name="descrizione" maxlength="300" required placeholder="Inserire descrizione"></textarea></label>
 
