@@ -11,15 +11,20 @@ public class prodotto implements Serializable {
     Float Media_Valutazioni;
     String Amministratore;
 
+    String nome;
+    int quantità;
+
 
     public prodotto() {
 
-        this.codice = -1;
+        this.codice = 0;
         this.prezzo = 0.0f;
         this.descrizione = "";
         this.Categoria = "";
         this.Media_Valutazioni = 0.0f;
         this.Amministratore = "";
+        this.nome="";
+        this.quantità=0;
 
     }
 
@@ -53,6 +58,22 @@ public class prodotto implements Serializable {
 
     public void setCategoria(String categoria) {
         Categoria = categoria;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getQuantità() {
+        return quantità;
+    }
+
+    public void setQuantità(int quantità) {
+        this.quantità = quantità;
     }
 
     public float getMedia_Valutazioni() {

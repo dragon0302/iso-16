@@ -35,22 +35,22 @@ public class modelDS implements model {
         Connection connection = null;
         PreparedStatement query= null;
 
-        String insertSQL = "INSERT INTO "+ TABLE_NAME + " (codice, prezzo, descrizzione, Categoria, Media_Valutazioni, Amministratore) VALUES (?,?,?,?,?,?)";
+        //String insertSQL = "INSERT INTO "+ TABLE_NAME + " (codice, prezzo, descrizzione, Categoria, Media_Valutazioni, Amministratore) VALUES (?,?,?,?,?,?)";
 
 
         try {
             connection = ds.getConnection();
-            query = connection.prepareStatement(insertSQL);
+            query = connection.prepareStatement("INSERT INTO "+ TABLE_NAME + " (codice, prezzo, descrizzione, Categoria, Media_Valutazioni, Amministratore, nome, quantità) VALUES (?,?,?,?,?,?,?,?)");
             query.setInt(1,nuovo.getCodice());
             query.setFloat(2,nuovo.getPrezzo());
             query.setString(3,nuovo.getDescrizione());
             query.setString(4,nuovo.getCategoria());
             query.setFloat(5,nuovo.getMedia_Valutazioni());
             query.setString(6,nuovo.getAmministratore());
+            query.setString(6,nuovo.getNome());
+            query.setInt(6,nuovo.getQuantità());
 
             query.executeUpdate();
-
-//            connection.commit();
 
         }finally {
             try {
@@ -176,6 +176,8 @@ public class modelDS implements model {
                 nuovo.setCategoria(rs.getString("Categoria"));
                 nuovo.setMedia_Valutazioni(rs.getFloat("Media_Valutazioni"));
                 nuovo.setAmministratore(rs.getString("Amministratore"));
+                nuovo.setNome(rs.getString("nome"));
+                nuovo.setQuantità(rs.getInt("quantità"));
                 prodotti.add(nuovo);
 
 

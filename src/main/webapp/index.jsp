@@ -11,7 +11,6 @@
 <h2>Catalogo</h2>
 <h3>Inserimento</h3>
 
-
 <form action="catalogo" method="POST">
 
     <%--@declare id="prezzo"--%>
