@@ -1,24 +1,26 @@
-package com.example.database;
+package com.example.webManagment;
+
+import dataManagment.product;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class carello {
 
-    private List<prodotto> prodotti;
+    private List<product> prodotti;
 
     public carello(){
         prodotti = new ArrayList<>();
     }
 
-    public void AggungiProdotto(prodotto nuovo){
+    public void AggungiProdotto(product nuovo){
 
         prodotti.add(nuovo);
 
     }
 
-    public void rimuoviProdotto(prodotto rimuovi){
-        for (prodotto cli : prodotti){
+    public void rimuoviProdotto(product rimuovi){
+        for (product cli : prodotti){
             if (cli.getCodice() == rimuovi.getCodice()){
                 prodotti.remove(cli);
                 break;
@@ -26,7 +28,7 @@ public class carello {
         }
     }
 
-    public List<prodotto> getProdotto() {
+    public List<product> getProdotto() {
         return prodotti;
     }
 }

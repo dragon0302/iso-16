@@ -1,4 +1,4 @@
-package com.example.database;
+package dataManagment;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -11,9 +11,7 @@ import java.sql.SQLException;
 import java.util.Collection;
 import java.util.LinkedList;
 
-public class modelDS implements model {
-
-    public modelDS(){}
+public class productDAOimpl implements productDAO {
 
     private static DataSource ds;
 
@@ -30,7 +28,7 @@ public class modelDS implements model {
 
     private static final String TABLE_NAME = "prodotto";
 
-    public synchronized void doSave(prodotto nuovo) throws SQLException{
+    public synchronized void doSave(product nuovo) throws SQLException{
 
         Connection connection = null;
         PreparedStatement query= null;
@@ -69,12 +67,12 @@ public class modelDS implements model {
 
     }
 
-    public synchronized prodotto doRetrieveByKey(int code) throws SQLException {
+    public synchronized product doRetrieveByKey(int code) throws SQLException {
 
         Connection connection = null;
         PreparedStatement query = null;
 
-        prodotto nuvo = new prodotto();
+        product nuvo = new product();
 
         String selectSQL = "select * FROM" + TABLE_NAME + "WERE COMDE=?";
 
@@ -146,12 +144,12 @@ public class modelDS implements model {
 
     }
 
-    public synchronized Collection<prodotto> doRetrieveAll(String order) throws SQLException{
+    public synchronized Collection<product> doRetrieveAll(String order) throws SQLException{
 
         Connection connection = null;
         PreparedStatement query = null;
 
-        Collection<prodotto> prodotti = new LinkedList<prodotto>();
+        Collection<product> prodotti = new LinkedList<product>();
 
         String selectSQL = "SELECT * FORM" + TABLE_NAME;
 
@@ -168,7 +166,7 @@ public class modelDS implements model {
 
             while (rs.next()){
 
-                prodotto nuovo = new prodotto();
+                product nuovo = new product();
 
                 nuovo.setCodice(rs.getInt("Codice"));
                 nuovo.setPrezzo(rs.getFloat("prezzo"));

@@ -1,5 +1,8 @@
-package com.example.database;
+package servlet;
 
+import dataManagment.product;
+import dataManagment.productDAO;
+import dataManagment.productDAOimpl;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -10,7 +13,7 @@ import java.io.IOException;
 @WebServlet("/catalogo")
 public class catalogo extends HttpServlet {
 
-    model modello = new modelDS();
+    productDAO modello = new productDAOimpl();
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 
@@ -19,7 +22,7 @@ public class catalogo extends HttpServlet {
         try {
             if (action != null) {
 
-                prodotto nuovo = new prodotto();
+                product nuovo = new product();
                 response.sendRedirect("index.jsp");
 
                 int codice = Integer.parseInt(request.getParameter("codice"));

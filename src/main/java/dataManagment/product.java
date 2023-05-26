@@ -1,21 +1,20 @@
-package com.example.database;
+package dataManagment;
 
 import java.io.Serializable;
 
-public class prodotto implements Serializable {
+public class product implements Serializable {
 
-    int codice;
-    float prezzo;
-    String descrizione;
-    String Categoria;
-    Float Media_Valutazioni;
-    String Amministratore;
+    private int codice;
+    private float prezzo;
+    private String descrizione;
+    private String Categoria;
+    private Float Media_Valutazioni;
+    private String Amministratore;
+    private String nome;
+    private int quantità;
 
-    String nome;
-    int quantità;
 
-
-    public prodotto() {
+    public product() {
 
         this.codice = 0;
         this.prezzo = 0.0f;

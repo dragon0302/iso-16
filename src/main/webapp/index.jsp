@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="java.util.*,com.example.database.carello,com.example.database.prodotto" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="java.util.*,com.example.webManagment.carello,dataManagment.product" %>
 
 <!DOCTYPE html>
 <html>
