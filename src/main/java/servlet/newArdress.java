@@ -25,7 +25,6 @@ public class newArdress extends HttpServlet {
                 ardress.setNazzione(request.getParameter("Nazzione"));
                 ardress.setCitta(request.getParameter("Città"));
                 ardress.setCap(Integer.parseInt(request.getParameter("Cap")));
-                System.out.println(request.getParameter("Civico"));
                 ardress.setCivico(Integer.parseInt(request.getParameter("Civico")));
                 ardress.setVia(request.getParameter("Via"));
                 ardress.setCF_cliente(request.getParameter("CF_cliente"));
