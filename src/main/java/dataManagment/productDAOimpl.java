@@ -33,9 +33,6 @@ public class productDAOimpl implements productDAO {
         Connection connection = null;
         PreparedStatement query= null;
 
-        //String insertSQL = "INSERT INTO "+ TABLE_NAME + " (codice, prezzo, descrizzione, Categoria, Media_Valutazioni, Amministratore) VALUES (?,?,?,?,?,?)";
-
-
         try {
             connection = ds.getConnection();
             query = connection.prepareStatement("INSERT INTO "+ TABLE_NAME + " (codice, prezzo, descrizzione, Categoria, Media_Valutazioni, Amministratore, nome, quantità) VALUES (?,?,?,?,?,?,?,?)");

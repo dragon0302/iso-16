@@ -20,6 +20,7 @@ public class registration extends HttpServlet {
         try {
             if (action != null){
 
+                String messagio = "nome utente gia esistente";
                 client cliente = new client();
 
                 cliente.setCF(request.getParameter("CF"));
@@ -36,7 +37,16 @@ public class registration extends HttpServlet {
                 String anno = date[2];
                 data = anno+"/"+mese+"/"+giorno;
                 cliente.setData_di_nascita(data);
-                modello.doSave(cliente);
+
+                if (modello.existingUser(cliente.getUsername())){
+                    request.setAttribute("messagio",messagio);
+                    request.getRequestDispatcher("registration.jsp").forward(request,response);
+                }else {
+                    modello.doSave(cliente);
+                    response.sendRedirect("home.jsp");
+                }
+
+
 
             }
         }catch (Exception e){

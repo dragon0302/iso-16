@@ -1,0 +1,16 @@
+INSERT INTO Prodotto (codice, prezzo, descrizione, Categoria, Media_Valutazioni, Amministratore) VALUES (?,?,?,?,?,?)
+
+INSERT INTO Amministratore (Username, PW) VALUES (?,?)
+
+INSERT INTO Ordine (ID, Prezzo_tot, Data_ordine, Codice_Fiscale_CLiente, Codice_Pagamento) VALUES (?,?,?,?,?)
+
+INSERT INTO Metodo_di_pagamento (Codice, Tipo, Numero_Carta, CVC, Codice_Gifcard, Data_Scadenza) VALUES(?,?,?,?,?,?)
+
+INSERT INTO acquisto (Codice_sconto, ID_ordine, Codice_Prodotto, Quantità) VALUES (?,?,?,?)
+
+INSERT INTO recensione (Commento, Valutazione, Codice_Prodotto, CF_cliente) VALUES (?,?,?,?)
+
+INSERT INTO Cliente (CF, Nome, Cognome, Data_di_nascita, Telefono, Email, Username, PW) VALUES (?,?,?,?,?,?,?,?)
+
+INSERT INTO Indirizzo (Nazione, Città, Cap, Civico, Via, Codice_Fiscale_Cliente) VALUES (?,?,?,?,?,?)
+

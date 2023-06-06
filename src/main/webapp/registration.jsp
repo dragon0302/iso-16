@@ -41,5 +41,15 @@
 
 </form>
 
+<%
+
+    String messagio = (String) request.getAttribute("messagio");
+    if (messagio != null && !messagio.isEmpty()){
+        %>
+
+        <p><%=messagio%></p>
+
+    <%}%>
+
 </body>
 </html>
